@@ -31,6 +31,13 @@ router.get("/sequence", async (ctx: Context) => {
 
 router.patch("/upstream", async (ctx: Context) => {
     console.log(`[rproxy router] got upstream update request`);
+
+    if (ctx.request.body.updateKey !== Config.shared_update_key) {
+        console.log(`[rproxy router] unauthorized update request`);
+        ctx.status = 401;
+        return ctx.body = {"message": "unauthorized"};
+    }
+
     console.log(`[rproxy router] change upstream to ${ctx.request.body.upstreamHost}:${ctx.request.body.upstreamPort}`);
     upstream.upstreamHost = ctx.request.body.upstreamHost;
     upstream.upstreamPort = ctx.request.body.upstreamPort;

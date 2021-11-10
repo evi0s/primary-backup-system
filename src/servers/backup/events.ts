@@ -16,7 +16,8 @@ taskEvent.on('charge', async () => {
             method: "PATCH",
             data: {
                 upstreamHost: Config.backup_listen_host,
-                upstreamPort: Config.backup_listen_port()
+                upstreamPort: Config.backup_listen_port(),
+                updateKey: Config.shared_update_key
             },
             headers: {
                 "Pragma": "no-cache",

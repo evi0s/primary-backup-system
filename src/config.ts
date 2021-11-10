@@ -34,5 +34,7 @@ export class Config {
 
     public static db_path = process.env.DB_PATH || `${process.cwd()}/db.txt`;
 
+    public static shared_update_key = process.env.SHARED_KEY || 'thesearerandomlychosedwordsbyme';
+
 }
 
