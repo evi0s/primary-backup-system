@@ -31,3 +31,7 @@ kill -int <pid of main_server>
 # then backup server will take in place
 ```
 
+## Demo Image
+
+![demo](images/demo.png)
+
